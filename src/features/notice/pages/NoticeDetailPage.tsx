@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import noticeApi from "../api/noticeApi";
 import Alert from "../../../components/Alert";
 import Confirm from "../../../components/Confirm";
+import "../css/NoticeForm.css";
 
 function NoticeDetailPage() {
     const [no, setNo] = useState(0);
@@ -22,10 +23,9 @@ function NoticeDetailPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const loadPage = async() => {
-            const res = await noticeApi.getDetailNotice(Number(id!)); // id값이 무조건 존재
-            
+        const loadPage = async() => {            
             try{
+                const res = await noticeApi.getDetailNotice(Number(id!)); // id값이 무조건 존재
                 setNo(res.data.no);
                 setTitle(res.data.title);
                 setWriter(res.data.writer);
@@ -33,9 +33,9 @@ function NoticeDetailPage() {
             }catch(error){
                 setAlertMessage("조회에 실패하였습니다.");
                 setAlertOpen(true);
-            }
-            
+            }            
         }
+
         loadPage();
     }, []);
 
@@ -110,21 +110,40 @@ function NoticeDetailPage() {
                     />
                 )
             }
-            <div>
-                <label>번호</label>
-                <input type="text" name="no" placeholder="번호" readOnly value={no} onChange={(e) => setNo(Number(e.target.value))}/><br/>
-                <label>제목</label>
-                <input type="text" name="title" placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)}/><br/>
-                <label>글쓴이</label>
-                <input type="text" name="writer" placeholder="글쓴이" value={writer} onChange={(e) => setWriter(e.target.value)}/><br/>
-                <label>등록일</label>
-                <input type="text" name="date" placeholder="등록일" value={date} onChange={(e) => setDate(e.target.value)}/>
-            </div>
-            <div>
-                <button onClick={updateConfirm}>수정</button>
-                <button onClick={deleteConfirm}>삭제</button>
-                <button onClick={() => navigate("/notice/listPage")}>취소</button>
-            </div>
+
+            <div className="notice-container">
+                <div className="notice-form-header">
+                    <h1>공지사항 상세</h1>
+                </div>
+                
+                <div className="notice-form-card">
+                    <div className="form-row">
+                        <label>번호</label>
+                        <input type="text" name="no" placeholder="번호" readOnly value={no} onChange={(e) => setNo(Number(e.target.value))}/>
+                    </div>
+
+                    <div className="form-row">
+                        <label>제목</label>
+                        <input type="text" name="title" placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                    </div>
+
+                    <div className="form-row">
+                        <label>글쓴이</label>
+                        <input type="text" name="writer" placeholder="글쓴이" value={writer} onChange={(e) => setWriter(e.target.value)}/>
+                    </div>
+
+                    <div className="form-row">
+                        <label>등록일</label>
+                        <input type="text" name="date" placeholder="등록일" value={date} onChange={(e) => setDate(e.target.value)}/>
+                    </div>                    
+                </div>
+
+                <div className="form-actions">
+                    <button className="submit-btn" onClick={updateConfirm}>수정</button>
+                    <button className="delete-btn" onClick={deleteConfirm}>삭제</button>
+                    <button className="cancel-btn" onClick={() => navigate("/notice/listPage")}>목록</button>
+                </div>
+            </div>            
         </>
     )
 }

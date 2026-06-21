@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../features/login/store/loginSlice";
+import "../css/Header.css";
 
 function Header() {
 
@@ -19,25 +20,25 @@ function Header() {
     }
 
     return (
-        <header className="border-b border-gray-200 bg-white">
-            <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-                <h1 className="text-xl font-bold">Trip Planner</h1>
+        <header className="header">
+            <div className="header-inner">
+                <h1 className="header-logo">Trip Planner</h1>
 
-                <nav className="flex gap-4 text-sm text-gray-600">
-                    <Link to="/" className="hover:text-black">Home</Link>
-                    <Link to="/trips" className="hover:text-black">Trips</Link>
-                    <Link to="/notice/listPage" className="hover:text-black">notice</Link>
+                <nav className="header-nav">
+                    <Link to="/">Home</Link>
+                    <Link to="/trips">Trips</Link>
+                    <Link to="/notice/listPage">notice</Link>
                     {
                         loginYn?(
                             <>
-                                <span>환영합니다. {userId}</span>
-                                <Link to="" className="hover:text-black" onClick={handleLogout}>Logout</Link>
+                                <span className="welcome-text">환영합니다. {userId}</span>
+                                <Link to="" className="logout-btn" onClick={handleLogout}>Logout</Link>
                             </>
                         )
                         :
                         <>
-                            <Link to="/login" className="hover:text-black">Login</Link>
-                            <Link to="/Join" className="hover:text-black">Join</Link>
+                            <Link to="/login">Login</Link>
+                            <Link to="/Join" className="join-btn">Join</Link>
                         </>                        
                     }                    
                 </nav>
