@@ -1,6 +1,6 @@
 import axios from "axios";
-import type { login } from "../types/types";
-import api from "./api";
+import type { login } from "../types/loginType";
+import api from "../../../apis/api";
 
 const loginApi = {
     async tryLogin(login : login) {

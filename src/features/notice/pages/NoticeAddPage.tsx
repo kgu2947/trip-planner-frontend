@@ -1,8 +1,8 @@
 import { useState } from "react";
-import noticeApi from "../apis/noticeApi";
+import noticeApi from "../api/noticeApi";
 import { useNavigate } from "react-router-dom";
-import Alert from "../components/Alert";
-import Confirm from "../components/Confirm";
+import Alert from "../../../components/Alert";
+import Confirm from "../../../components/Confirm";
 
 function NoticeAddPage() {
     const [no, setNo] = useState(0);

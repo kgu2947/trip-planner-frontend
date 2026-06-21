@@ -1,6 +1,5 @@
-import axios from "axios"
-import type { Join } from "../types/types";
-import api from "./api";
+import type { Join } from "../types/joinType";
+import api from "../../../apis/api";
 
 const joinApi = {
     async getIdCnt(userId : string) {

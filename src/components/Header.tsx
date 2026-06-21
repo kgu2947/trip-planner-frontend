@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../stores/loginSlice";
+import { logout } from "../features/login/store/loginSlice";
 
 function Header() {
 

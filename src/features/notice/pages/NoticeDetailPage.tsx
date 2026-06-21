@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
-import noticeApi from "../apis/noticeApi";
-import Alert from "../components/Alert";
-import Confirm from "../components/Confirm";
+import noticeApi from "../api/noticeApi";
+import Alert from "../../../components/Alert";
+import Confirm from "../../../components/Confirm";
 
 function NoticeDetailPage() {
     const [no, setNo] = useState(0);

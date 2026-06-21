@@ -1,5 +1,5 @@
-import type { Notice, NoticeReq } from "../types/types";
-import api from "./api";
+import type { Notice, NoticeReq } from "../types/noticeType";
+import api from "../../../apis/api";
 
 const noticeApi = {
     async getNotice(noticeReq : NoticeReq) {

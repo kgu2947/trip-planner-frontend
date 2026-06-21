@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import noticeApi from "../apis/noticeApi";
-import type { Notice } from "../types/types";
+import noticeApi from "../api/noticeApi";
+import type { Notice } from "../types/noticeType";
 import { useDispatch } from "react-redux";
-import { addViewNotice } from "../stores/noticeSlice";
-import Alert from "../components/Alert";
+import { addViewNotice } from "../store/noticeSlice";
+import Alert from "../../../components/Alert";
 
 function NoticePage() {
 

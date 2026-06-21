@@ -1,8 +1,8 @@
 import { useState } from "react";
-import joinApi from "../apis/joinApi";
+import joinApi from "../api/joinApi";
 import { useNavigate } from "react-router-dom";
-import Alert from "../components/Alert";
-import Confirm from "../components/Confirm";
+import Alert from "../../../components/Alert";
+import Confirm from "../../../components/Confirm";
 
 function JoinPage() {
     const [userId, setUserId] = useState("");

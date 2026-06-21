@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import LoginPage from "../pages/LoginPage";
+import LoginPage from "../features/login/pages/LoginPage";
 import MainLayout from "../layouts/MainLayout";
 import NotFoundPage from "../pages/NotFoundPage";
-import NoticePage from "../pages/NoticePage";
-import NoticeAddPage from "../pages/NoticeAddPage";
-import NoticeDetailPage from "../pages/NoticeDetailPage";
-import JoinPage from "../pages/JoinPage";
+import NoticePage from "../features/notice/pages/NoticePage";
+import NoticeAddPage from "../features/notice/pages/NoticeAddPage";
+import NoticeDetailPage from "../features/notice/pages/NoticeDetailPage";
+import JoinPage from "../features/join/pages/JoinPage";
 
 function AppRouter() {
     return (

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import loginApi from "../apis/loginApi";
+import loginApi from "../api/loginApi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login, logout } from "../stores/loginSlice";
-import Alert from "../components/Alert";
+import { login, logout } from "../store/loginSlice";
+import Alert from "../../../components/Alert";
 
 function LoginPage() {
     const [userId, setUserId] = useState("");
