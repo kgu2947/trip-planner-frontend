@@ -37,6 +37,7 @@ function NoticePage() {
         }catch(error){
             setAlertMessage("공지사항 조회에 실패했습니다.");
             setAlertOpen(true);
+            console.log(error);
         }                               
     }
 

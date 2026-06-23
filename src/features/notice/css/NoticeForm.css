@@ -1,5 +1,5 @@
 .notice-container {
-  max-width: 900px; /* 600 -> 900 */
+  max-width: 900px;
   margin: 60px auto;
   padding: 0 24px;
 }
@@ -73,6 +73,54 @@
   cursor: not-allowed;
 }
 
+/* =========================
+   📎 첨부파일 영역 추가
+========================= */
+
+.file-box {
+  margin-top: 8px;
+  padding: 14px;
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+  background: #f9fafb;
+  transition: 0.2s ease;
+}
+
+.file-box:hover {
+  border-color: #2563eb;
+  background: #f3f6ff;
+}
+
+.file-input {
+  width: 100%;
+  font-size: 14px;
+}
+
+.file-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+
+  padding: 8px 10px;
+  border-radius: 8px;
+
+  background: #fff;
+  border: 1px solid #e5e7eb;
+
+  font-size: 13px;
+  color: #374151;
+}
+
+/* =========================
+   버튼 영역
+========================= */
+
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -121,6 +169,10 @@
 .cancel-btn:hover {
   background: #d1d5db;
 }
+
+/* =========================
+   반응형
+========================= */
 
 @media (max-width: 768px) {
   .notice-container {

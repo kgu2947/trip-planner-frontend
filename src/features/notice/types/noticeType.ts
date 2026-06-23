@@ -1,9 +1,3 @@
-export type addNotice = {
-    title : string
-    , content : string
-    , writer : string
-}
-
 export type getNotice = {
     no : number
     , title : string
