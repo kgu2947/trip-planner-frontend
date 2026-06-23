@@ -1,4 +1,4 @@
-import type { Notice, NoticeReq } from "../types/noticeType";
+import type { addNotice, NoticeReq, putNotice } from "../types/noticeType";
 import api from "../../../apis/api";
 
 const noticeApi = {
@@ -9,7 +9,7 @@ const noticeApi = {
         return res;
     },
 
-    async addNotice(notice : Notice) {
+    async addNotice(notice : addNotice) {
         return await api.post("/addNotice", notice);
     },
 
@@ -18,7 +18,7 @@ const noticeApi = {
         return res;
     },
 
-    async updateNotice(notice : Notice) {
+    async updateNotice(notice : putNotice) {
         return await api.put("/updateNotice", notice);
     },
 

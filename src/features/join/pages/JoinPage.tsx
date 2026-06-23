@@ -3,6 +3,7 @@ import joinApi from "../api/joinApi";
 import { useNavigate } from "react-router-dom";
 import Alert from "../../../components/Alert";
 import Confirm from "../../../components/Confirm";
+import "../css/joinPage.css";
 
 function JoinPage() {
     const [userId, setUserId] = useState("");
@@ -131,21 +132,43 @@ function JoinPage() {
                     />
                 )
             }
-            <h1>회원가입</h1>
-            <div>
-                <label>아이디</label>
-                <input type="text" name="userId" value={userId} onChange={(e) => {setUserId(e.target.value); setCheckUserId(false);}}/><button onClick={checkId}>중복확인</button><br/>
-                <label>비밀번호</label>
-                <input type="password" name="userPassword" onChange={(e) => {setUserPassword(e.target.value)}}/><br/>
-                <label>비밀번호 확인</label>
-                <input type="password" name="userPassword2" onChange={(e) => {setUserPassword2(e.target.value)}}/><br/>
-                <label>이메일</label>
-                <input type="text" name="email" onChange={(e) => {setEmail(e.target.value)}}/><br/>
-                <label>주소</label>
-                <input type="text" name="addr" onChange={(e) => {setAddr(e.target.value)}}/><br/>
-            </div>
-            <div>
-                <button onClick={addConfirm}>가입</button>
+            <div className="join-container">
+                <div className="join-title">
+                    회원가입
+                </div>
+
+                <div className="join-box">
+                    <div className="join-row">
+                        <label>아이디</label>
+                        <div className="join-id-group">
+                            <input type="text" name="userId" value={userId} onChange={(e) => {setUserId(e.target.value); setCheckUserId(false);}}/>
+                            <button onClick={checkId}>중복확인</button>
+                        </div>
+                    </div>
+
+                    <div className="join-row">
+                        <label>비밀번호</label>
+                        <input type="password" name="userPassword" onChange={(e) => {setUserPassword(e.target.value)}}/>
+                    </div>
+
+                    <div className="join-row">
+                        <label>비밀번호 확인</label>
+                        <input type="password" name="userPassword2" onChange={(e) => {setUserPassword2(e.target.value)}}/>
+                    </div>
+
+                    <div className="join-row">
+                        <label>이메일</label>
+                        <input type="text" name="email" onChange={(e) => {setEmail(e.target.value)}}/>
+                    </div>
+
+                    <div className="join-row">
+                        <label>주소</label>
+                        <input type="text" name="addr" onChange={(e) => {setAddr(e.target.value)}}/>
+                    </div>
+
+                    <button className="join-button" onClick={addConfirm}>가입</button>
+                </div>
+
             </div>
         </>
     )

@@ -1,0 +1,104 @@
+/* 전체 배경 */
+.join-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80px;
+    background: linear-gradient(180deg, #f5f6f8, #ffffff);
+}
+
+/* 제목 */
+.join-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 폼 박스 */
+.join-box {
+    width: 420px;
+    padding: 35px 30px;
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 각 줄 */
+.join-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+/* 라벨 */
+.join-row label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+/* input */
+.join-row input {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.join-row input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.15);
+}
+
+/* 아이디 + 중복확인 버튼 묶음 */
+.join-id-group {
+    display: flex;
+    gap: 8px;
+}
+
+.join-id-group input {
+    flex: 1;
+}
+
+.join-id-group button {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6c757d;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.join-id-group button:hover {
+    background-color: #5a6268;
+}
+
+/* 가입 버튼 */
+.join-button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.join-button:hover {
+    background-color: #3a7bd5;
+}
+
+.join-button:active {
+    transform: scale(0.98);
+}

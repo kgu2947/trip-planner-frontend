@@ -1,8 +1,21 @@
-export type Notice = {
+export type addNotice = {
+    title : string
+    , content : string
+    , writer : string
+}
+
+export type getNotice = {
     no : number
     , title : string
+    , content : string
     , writer : string
     , reg_date : string
+}
+
+export type putNotice = {
+    no : number
+    , title : string
+    , content : string
 }
 
 export type NoticeReq = {

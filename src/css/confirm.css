@@ -1,0 +1,66 @@
+.confirm-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.confirm-box {
+    width: 340px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.confirm-message {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 버튼 영역 */
+.confirm-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* 공통 버튼 */
+.confirm-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* 확인 버튼 */
+.confirm-ok {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.confirm-ok:hover {
+    background-color: #3a7bd5;
+}
+
+/* 취소 버튼 */
+.confirm-cancel {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.confirm-cancel:hover {
+    background-color: #cfcfcf;
+}
+
+.confirm-btn:active {
+    transform: scale(0.98);
+}

@@ -6,10 +6,8 @@ import Confirm from "../../../components/Confirm";
 import "../css/NoticeForm.css";
 
 function NoticeAddPage() {
-    const [no, setNo] = useState(0);
     const [title, setTitle] = useState("");
-    const [writer, setWriter] = useState("");
-    const [date, setDate] = useState("");
+    const [content, setContent] = useState("");
 
     const navigate = useNavigate();
 
@@ -19,6 +17,8 @@ function NoticeAddPage() {
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [confirmMessage, setconfirmMessage] = useState("");
 
+    const loginId = String(localStorage.getItem("userId"));
+
     const addConfirm = () => {
         setconfirmMessage("등록하시겠습니까?");
         setConfirmOpen(true);
@@ -26,10 +26,9 @@ function NoticeAddPage() {
 
     const handleAddNotice = async() => {
         const notice = {
-            no : no
-            , title : title
-            , writer : writer
-            , reg_date : date
+            title : title
+            , content : content
+            , writer : loginId
         }
 
             try{
@@ -72,24 +71,13 @@ function NoticeAddPage() {
                 
                 <div className="notice-form-card">
                     <div className="form-row">
-                        <label>번호</label>
-                        <input type="text" name="no" placeholder="번호" onChange={(e) => setNo(Number(e.target.value))}/>
-                    </div>
-
-                    <div className="form-row">
                         <label>제목</label>
-                        <input type="text" name="title" placeholder="제목" onChange={(e) => setTitle(e.target.value)}/>
+                        <input type="text" name="title" placeholder="제목을 입력하세요." onChange={(e) => setTitle(e.target.value)}/>
                     </div>
-
                     <div className="form-row">
-                        <label>글쓴이</label>
-                        <input type="text" name="writer" placeholder="글쓴이" onChange={(e) => setWriter(e.target.value)}/>
-                    </div>
-
-                    <div className="form-row">
-                        <label>등록일</label>
-                        <input type="text" name="date" placeholder="등록일" onChange={(e) => setDate(e.target.value)}/>
-                    </div>                    
+                        <label>내용</label>
+                        <textarea name="content" placeholder="내용을 입력하세요." onChange={(e) => setContent(e.target.value)}/>
+                    </div>                                      
                 </div>
 
                 <div className="form-actions">

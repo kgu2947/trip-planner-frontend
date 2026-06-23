@@ -13,3 +13,10 @@ body {
     BlinkMacSystemFont,
     sans-serif;
 }
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}

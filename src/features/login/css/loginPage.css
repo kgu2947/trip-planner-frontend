@@ -1,0 +1,86 @@
+/* 전체 배경 */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;   /* 중앙 → 위 정렬 */
+    align-items: center;
+    flex-direction: column;
+    padding-top: 120px;            /* 위 여백 */
+    background: linear-gradient(180deg, #f5f6f8, #ffffff);
+}
+
+/* 로그인 카드 */
+.login-box {
+    width: 380px;
+    padding: 40px 30px;
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    transition: 0.2s;
+}
+
+/* 살짝 floating 느낌 (호버 시) */
+.login-box:hover {
+    transform: translateY(-3px);
+}
+
+/* 제목 */
+.login-title {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* 폼 영역 */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 라벨 */
+.login-form label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* 입력창 */
+.login-form input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.login-form input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.15);
+}
+
+/* 버튼 */
+.login-button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-button:hover {
+    background-color: #3a7bd5;
+}
+
+.login-button:active {
+    transform: scale(0.98);
+}

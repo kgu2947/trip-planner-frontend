@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import noticeApi from "../api/noticeApi";
-import type { Notice } from "../types/noticeType";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addViewNotice } from "../store/noticeSlice";
 import Alert from "../../../components/Alert";
 import "../css/NoticePage.css";
+import type { getNotice } from "../types/noticeType";
 
 function NoticePage() {
 
-    const [list, setList] = useState<Notice[]>([]);
+    const [list, setList] = useState<getNotice[]>([]);
     const [noticeCnt, setNoticeCnt] = useState(1);
     const [page, setPage] = useState(1);
 
@@ -21,6 +21,10 @@ function NoticePage() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const loginYn = useSelector(
+        (state : any) => state.loginState.token
+    );
 
     const loadPage = async(page : number) => {
         try{
@@ -59,7 +63,7 @@ function NoticePage() {
         }        
     }
 
-    const viewAddNotice = (notice : Notice) => {
+    const viewAddNotice = (notice : getNotice) => {
         dispatch(addViewNotice(notice));
         navigate(`/notice/detailPage/${notice.no}`);
     }
@@ -78,12 +82,15 @@ function NoticePage() {
             <div className="notice-container">
                 <div className="notice-header">
                     <h1>공지사항</h1>
-                    <Link className="write-btn" to="/notice/addPage">등록</Link>
+                    {
+                        loginYn && (<Link className="write-btn" to="/notice/addPage">등록</Link>)
+                    }                    
                 </div>
 
                 <div className="search-box">
                     <select value={searchType} onChange={(e) => setSearchType(e.target.value)}>
                         <option value="searchTitle">제목</option>
+                        <option value="searchContent">내용</option>
                         <option value="searchWriter">작성자</option>
                     </select>
                     <input type="text" name="searchNotice" value={searchKeyword} placeholder="검색어를 입력하세요." onChange={(e) => setSearchKeyword(e.target.value)} />
