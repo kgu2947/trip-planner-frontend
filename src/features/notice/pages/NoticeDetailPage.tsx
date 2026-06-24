@@ -4,6 +4,8 @@ import noticeApi from "../api/noticeApi";
 import Alert from "../../../components/Alert";
 import Confirm from "../../../components/Confirm";
 import "../css/NoticeForm.css";
+import type { file } from "../../../types/types";
+import fileApi from "../../../apis/fileApi";
 
 function NoticeDetailPage() {
     const [no, setNo] = useState(0);
@@ -11,6 +13,9 @@ function NoticeDetailPage() {
     const [content, setContent] = useState("");
     const [writer, setWriter] = useState("");
     const [date, setDate] = useState("");
+
+    const [fileList, setFileList] = useState<file[]>([]);
+    const [fileCnt, setFileCnt] = useState(0);
 
     const [alertOpen, setAlertOpen] = useState(false);
     const [alertMessage, setAlertMessage] = useState("");
@@ -36,6 +41,9 @@ function NoticeDetailPage() {
                 setContent(res.data.content);
                 setWriter(res.data.writer);
                 setDate(res.data.reg_date);
+
+                setFileCnt(res.data.fileCnt);
+                setFileList(res.data.fileList);
             }catch(error){
                 setAlertMessage("조회에 실패하였습니다.");
                 setAlertOpen(true);
@@ -84,6 +92,26 @@ function NoticeDetailPage() {
                 setAlertOpen(true);
             }
         
+    }
+
+    const download = async(no : number, fileName : string) => {
+        const res = await fileApi.fileDownload(no);
+
+        
+
+        // 파일에 접근할 수 있는 임시 url 생성
+        const url = window.URL.createObjectURL(res.data);
+
+        console.log(url);
+
+        // a태그 만들어서 클릭하여 파일 다운로드 시작
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fileName;
+        a.click();
+
+        // 파일 다운로드 임시 url 제거(메모리 정리)
+        window.URL.revokeObjectURL(url);
     }
 
     return(
@@ -141,7 +169,33 @@ function NoticeDetailPage() {
                     <div className="form-row">
                         <label>등록일</label>
                         <input type="text" name="date" readOnly value={date}/>
-                    </div>                    
+                    </div>
+
+                    <div className="form-row">
+                        <label>첨부파일</label>
+
+                        <div className="file-box">
+                            {
+                                fileCnt > 0 ? (
+                                    <div className="file-list">
+                                        {
+                                            fileList.map((f, i) => (
+                                                <div key={i} className="file-item download-item" onClick={() => download(f.file_no, f.originName)}>
+                                                    {f.originName}
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                                )
+                                :
+                                (
+                                    <div className="empty-file">
+                                        첨부파일이 없습니다.
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>                                     
                 </div>
 
                 <div className="form-actions">

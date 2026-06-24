@@ -58,6 +58,12 @@ function NoticeAddPage() {
         })
     }
 
+    const removeFile = (idx : number) => {
+        // filter -> 배열에서 true인 것만 남김
+        // (_, i) _ -> 배열 요소인데 이 요소를 사용하지 않을 경우 // i -> 인덱스
+        setFile(prev => prev.filter((_, i) => i !== idx));
+    }
+
     const addConfirm = () => {
         setconfirmMessage("등록하시겠습니까?");
         setConfirmOpen(true);
@@ -126,17 +132,20 @@ function NoticeAddPage() {
                         <label>첨부파일</label>
 
                         <div className="file-box">
-                            {/* 단일 파일  */}
-                            {/* <input type="file" name="file" onChange={(e) => setFile(e.target.files?.[0] || null)}/> */}
-                            {/* 다중 파일 */}
-                            {/* onChange={(e) => {fileArray(e)}} -> onChange={fileArray} 똑같다. */}
-                            <input type="file" multiple name="file" onChange={(e) => {fileArray(e)}} />
-                            
+                            <label className="file-select-btn">파일 선택
+                                {/* 단일 파일  */}
+                                {/* <input type="file" name="file" onChange={(e) => setFile(e.target.files?.[0] || null)}/> */}
+                                {/* 다중 파일 */}
+                                {/* onChange={(e) => {fileArray(e)}} -> onChange={fileArray} 똑같다. */}
+                                <input type="file" multiple hidden name="file" onChange={(e) => {fileArray(e)}} />
+                            </label>
                             <div className="file-list">
                                 {
                                     file.map((f, i) => (
                                         <div className="file-item" key={i}>
-                                            {f.name}
+                                            <span>{f.name}</span>
+
+                                            <button onClick={() => removeFile(i)}>X</button>
                                         </div>
                                     ))
                                 }

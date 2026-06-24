@@ -21,10 +21,11 @@
 }
 
 .notice-form-header h1 {
+  margin: 0;
+
   font-size: 28px;
   font-weight: 700;
   color: #111827;
-  margin: 0;
 }
 
 .form-row {
@@ -42,9 +43,12 @@
 .form-row input,
 .form-row textarea {
   width: 100%;
+
   border: 1px solid #d1d5db;
   border-radius: 10px;
+
   font-size: 14px;
+
   transition: border 0.2s ease;
 }
 
@@ -56,6 +60,7 @@
 .form-row textarea {
   min-height: 300px;
   padding: 14px;
+
   resize: vertical;
   line-height: 1.6;
 }
@@ -74,47 +79,125 @@
 }
 
 /* =========================
-   📎 첨부파일 영역 추가
+   첨부파일
 ========================= */
 
 .file-box {
   margin-top: 8px;
   padding: 14px;
+
   border: 1px dashed #d1d5db;
   border-radius: 10px;
+
   background: #f9fafb;
-  transition: 0.2s ease;
 }
 
-.file-box:hover {
-  border-color: #2563eb;
-  background: #f3f6ff;
-}
+/* 파일선택 버튼 */
 
-.file-input {
-  width: 100%;
+.file-select-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+  color: #fff !important;
+
+  cursor: pointer;
   font-size: 14px;
+  font-weight: 600;
+
+  transition: background 0.2s ease;
+}
+
+.file-select-btn:hover {
+  background: #1d4ed8;
 }
 
 .file-list {
-  margin-top: 12px;
+  margin-top: 14px;
+
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .file-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 12px 16px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
 
   background: #fff;
-  border: 1px solid #e5e7eb;
 
-  font-size: 13px;
   color: #374151;
+  font-size: 14px;
+}
+
+.file-item span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-item::before {
+  content: "📎";
+  margin-right: 10px;
+}
+
+.file-item button {
+  width: 24px;
+  height: 24px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ef4444;
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.file-item button:hover {
+  background: #dc2626;
+}
+
+/* 상세페이지 다운로드용 */
+
+.file-item.download-item {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-item.download-item:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+
+  transform: translateY(-1px);
+}
+
+.empty-file {
+  padding: 12px 16px;
+
+  border-radius: 10px;
+  background: #fff;
+
+  color: #9ca3af;
+  font-size: 14px;
 }
 
 /* =========================
@@ -125,6 +208,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+
   margin-top: 24px;
 }
 
@@ -196,5 +280,9 @@
 
   .form-row textarea {
     min-height: 220px;
+  }
+
+  .file-select-btn {
+    width: 100%;
   }
 }
